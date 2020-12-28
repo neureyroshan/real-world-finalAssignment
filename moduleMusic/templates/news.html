@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>{% block title %}News{% endblock %}</title>
+
+
+</head>
+
+<body>
+    {% block pagecontent %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'album/back.jpg' %});">
+        <div class="bradcumbContent">
+            <p>See what’s new</p>
+            <h2>News</h2>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Blog Area Start ##### -->
+
+    <div class="blog-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                {% for ne in newsDetail %}
+                <div class="col-12 col-lg-9">
+                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="blog-post-thumb mt-30">
+                            <img src="{{ ne.newsImage.url }}" alt="news">
+                            <div class="post-date">
+                                <span>date:</span>
+                                <span>{{ ne.postDate }}</span>
+                            </div>
+                        </div>
+
+                        <div class="blog-content">
+                            <p class="post-title">{{ ne.newsTitle }}</p>
+                            <p>{{ ne.news }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

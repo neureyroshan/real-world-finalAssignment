@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}Dashboard{% endblock %}</title>
+
+
+</head>
+
+<body>
+    {% block pagecontent %}
+
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'album/back.jpg' %});">
+        <div class="bradcumbContent">
+            <h5>View tickets and shows you have booked</h5>
+        </div>
+    </section>
+
+    <section class="events-area section-padding-100">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Venue</th>
+              <th scope="col">Date</th>
+              <th scope="col">Price</th>
+                <th scope="col">Delete</th>
+            </tr>
+          </thead>
+
+            {% for d in dash %}
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>{{ d.showVenue }}</td>
+              <td>{{ d.showDate }}</td>
+              <td>{{ d.price }}</td>
+                <td><a href="/delete/{{d.id}}">Delete</a></td>
+            </tr>
+          </tbody>
+            {% endfor %}
+
+        </table>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

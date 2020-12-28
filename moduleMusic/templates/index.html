@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}Home{% endblock %}</title>
+
+</head>
+
+<body>
+    {% block pagecontent %}
+
+    <div class="bgVideo container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <video class="embed-responsive embed-responsive-16by9" muted="" webkit-playsinline="" loop="" autoplay="" preload="none">
+            <source src="{% static 'img/LandingVideo_7.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+    <section class="latest-albums-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading style-2">
+                        <h2>Latest Albums</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="albums-slideshow owl-carousel">
+                        <div class="single-album">
+                            <img src="{% static 'album/1.jpg' %}" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>DIO</h5>
+                                </a>
+                                <p>Underground</p>
+                            </div>
+                        </div>
+
+                        <div class="single-album">
+                            <img src="{% static 'album/2.jpg' %}" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>Iron Maiden</h5>
+                                </a>
+                                <p>Aenema</p>
+                            </div>
+                        </div>
+
+                        <div class="single-album">
+                            <img src="{% static 'album/3.jpg' %}" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>Megadeth</h5>
+                                </a>
+                                <p>The Last in Line</p>
+                            </div>
+                        </div>
+
+                        <div class="single-album">
+                            <img src="{% static 'album/4.jpg' %}" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>Pink Floyd</h5>
+                                </a>
+                                <p>Dark Side of The Moon</p>
+                            </div>
+                        </div>
+
+                        <div class="single-album">
+                            <img src="{% static 'album/5.jpg' %}" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>Children of Bodom</h5>
+                                </a>
+                                <p>The Reaper</p>
+                            </div>
+                        </div>
+
+                        <div class="single-album">
+                            <img src="{% static 'album/6.jpg' %}" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>Tool</h5>
+                                </a>
+                                <p>Fear Inocolum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
+                                    style="background-image: url({% static 'album/back.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading white">
+                        <h2>Write to us</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="E-mail">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea name="message" name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn oneMusic-btn mt-30" type="submit">Send <i class="fa fa-angle-double-right"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+</body>
+</html>

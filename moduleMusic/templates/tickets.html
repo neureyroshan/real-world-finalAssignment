@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}Tickets{% endblock %}</title>
+
+
+</head>
+
+<body>
+    {% block pagecontent %}
+
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'album/back.jpg' %});">
+        <div class="bradcumbContent">
+            <p></p>
+            <h2> Make your ticket booking here</h2>
+        </div>
+    </section>
+
+    <section class="events-area section-padding-100">
+        <div class="container">
+            <div class="row">
+
+                {% for sd in showDetail %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-event-area mb-30">
+                        <div class="event-thumbnail">
+                            <img src="{{ sd.image.url }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="event-text">
+                            <h4>{{ sd.showVenue }}</h4>
+                            <h4>{{ sd.showDate }}</h4>
+                            <h4>£ {{ sd.price }}</h4>
+                            <a href="../dashboard/{{ sd.id }}" class="btn see-more-btn">Get ticket</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+</body>
+</html>
